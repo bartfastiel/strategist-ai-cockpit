@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Strategist–AI Cockpit · Scanning &amp; Interpretation mit Claude</title>
+  <meta name="description" content="Strategische Frühaufklärung mit Claude — Scanning, Interpretation und Sensegiving nach der Dissertation von Dr. Franziskus Perkhofer.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛰️</text></svg>">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="logo">🛰️</span>
+      <div>
+        <h1>Strategist&ndash;AI&nbsp;Cockpit</h1>
+        <p>Strategische Frühaufklärung mit Claude · <span class="cite">nach Perkhofer (2026)</span></p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <span id="mode-badge" class="mode demo">Demo-Modus</span>
+      <button class="icon-btn" id="btn-profile" title="Unternehmensprofil">🏢 <span>Profil</span></button>
+      <button class="icon-btn" id="btn-settings" title="Einstellungen / API-Key">⚙︎ <span>Einstellungen</span></button>
+    </div>
+  </header>
+
+  <nav id="nav" class="nav" aria-label="Bereiche"></nav>
+
+  <main id="view" class="view"></main>
+
+  <footer class="app-footer">
+    <span>Claude (Anthropic) · direkter Browser-Aufruf, dein API-Key bleibt lokal.</span>
+    <span>Ein Demo-Werkzeug zum CCO-Pitch · operationalisiert „AI and the Strategizing Process“.</span>
+  </footer>
+
+  <!-- Drawers -->
+  <div id="scrim" class="scrim"></div>
+  <aside id="settings" class="drawer" aria-label="Einstellungen">
+    <header class="drawer-head"><h2>⚙︎ Einstellungen</h2><button class="drawer-close" aria-label="Schließen">✕</button></header>
+    <div id="settings-body" class="drawer-body"></div>
+  </aside>
+  <aside id="profile" class="drawer" aria-label="Unternehmensprofil">
+    <header class="drawer-head"><h2>🏢 Unternehmensprofil</h2><button class="drawer-close" aria-label="Schließen">✕</button></header>
+    <p class="drawer-intro">Dieses Profil speist alle Analysen. Standard: uCORE Systems GmbH.</p>
+    <div id="profile-body" class="drawer-body"></div>
+  </aside>
+
+  <div id="toast"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/demo-data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/prompts.js"></script>
+  <script src="js/tabs.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
