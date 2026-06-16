@@ -1,69 +1,80 @@
-# Strategist–AI Cockpit
+# uCORE Marktradar
 
-**Strategische Frühaufklärung mit Claude** — eine browserbasierte Web-App, die die Prozesse aus der
-Dissertation von **Dr. Franziskus Perkhofer**, *„AI and the Strategizing Process: Strategist-AI
-Collaboration in Strategic Issue Scanning and Interpretation Activities“* (TUM, 2026), in ein
-benutzbares Werkzeug übersetzt.
+Ein fokussiertes Werkzeug, das für ein Startup — hier am Beispiel **uCORE Systems GmbH** — laufend bewertet,
+wie sich **Chancen und Risiken durch aktuelle Ereignisse** verändern.
 
-Gebaut als Demonstrator für einen Pitch zu Anthropic/Claude — und um zu zeigen, was im Juni 2026
-möglich ist: Claude liest und interpretiert **live** das Marktumfeld, sieht kreative Wechselwirkungen
-mit dem Geschäftsmodell und macht dabei **Unsicherheit sichtbar**, statt sie zu kaschieren.
+Stündlich werden Nachrichtenquellen gescannt; jedes relevante Ereignis bekommt einen Einfluss-Faktor von
+**−1 (Risiko)** bis **+1 (Chance)** und eine kurze Begründung, **inwiefern es das Geschäftsmodell betrifft**.
 
-👉 **Live:** <https://bartfastiel.github.io/strategist-ai-cockpit/>
+👉 **Live:** <https://bartfastiel.github.io/ucore-radar/>
 
-## Die sechs Bereiche (Tabs)
-
-| Bereich | Rolle in der Dissertation | Was es tut |
-|---|---|---|
-| 🛰️ **Lagebild** | *Scanning* | Sucht live im Web nach Entwicklungen und sortiert sie in **drei Spalten**: neue Risiken · vermeintlich irrelevant · Chancen. |
-| 🧭 **Interpretation** | *Sensemaking / Interpretation* | Deutet ein Signal: Pro/Contra, Effekte zweiter Ordnung, „Was wir noch **nicht** wissen“. |
-| ⚔️ **Sparringspartner** | *Sensegiver-Rolle: Sparring* | Fordert Annahmen heraus, deckt Biases auf (Advocatus Diaboli). |
-| 💡 **Ideengeber** | *Sensegiver-Rolle: Ideator* | Kreative, laterale Wechselwirkungen zwischen Trend und Geschäftsmodell. Kreativitäts-/Temperatur-Regler. |
-| ⚙️ **Automator** | *Sensegiver-Rolle: Automator* | Verdichtet Lagebild + Interpretationen zu einer vorstandstauglichen Management-Vorlage. |
-| 📖 **Methodik** | *Theorierahmen* | Erklärt das Vertrauens-Unsicherheits-Dilemma, das Fit-Misfit-Paradox und die vier Sensegiver-Rollen. |
-
-## Der Clou: gegen die „trügerische Sicherheit“
-
-Die mittlere Spalte **„vermeintlich irrelevant“** ist bewusst gewollt. Perkhofers Kernbefund:
-*wahrgenommene Unsicherheit ≠ tatsächliche Unsicherheit.* Wer nur Gut/Schlecht anzeigt, erzeugt
-trügerische Sicherheit und übersieht **schwache Signale**. Zusätzlich trägt jede KI-Ausgabe eine
-**Konfidenz-Angabe** und einen „Was wir noch nicht wissen“-Block — KI ist hier **Sensegiver, nicht
-Orakel**.
-
-## Nutzung
-
-1. `index.html` öffnen (lokal **oder** über die GitHub-Pages-URL).
-2. Oben rechts unter **⚙︎ Einstellungen** einen **Anthropic-API-Key** eintragen — er bleibt
-   ausschließlich lokal im Browser (`localStorage`) und wird nur direkt an `api.anthropic.com`
-   gesendet (CORS via `anthropic-dangerous-direct-browser-access`).
-3. Oder ohne Key direkt im **Demo-Modus** loslegen (vorab berechnete Beispieldaten, keine Kosten).
-4. Unter **🏢 Profil** das Unternehmen anpassen (Standard: **uCORE Systems GmbH**, recherchiert).
-
-> ⚠️ **Hinweis zum API-Key:** Der direkte Browser-Aufruf ist ideal für einen Demo/Einzelplatz.
-> Für eine Mehrnutzer-Produktion gehört der Key hinter einen Proxy (z. B. AWS Lambda / Cloudflare
-> Worker), nie ins ausgelieferte Frontend.
-
-## Technik
-
-- **Kein Build, kein Framework.** Reines HTML/CSS/JS — läuft von `file://` wie von GitHub Pages.
-- **Modell:** Standard `claude-opus-4-8`. Wählbar: Sonnet 4.6 / Opus 4.6.
-- **Live-Websuche:** Server-Tool `web_search_20260209` (mit dynamischem Filtern) für das Lagebild.
-- **Temperatur:** Opus 4.8/4.7 akzeptieren keinen `temperature`-Parameter — der Kreativitätsregler
-  steuert dort den **Prompt-Stil**; bei Sonnet 4.6 / Opus 4.6 zusätzlich den Parameter.
-- **Caching & Kosten:** Antworten werden lokal mit TTL gecached; nach jedem Aufruf erscheint eine
-  grobe **Kostenabschätzung** (Tokens, Websuchen, € via Listenpreis).
+## So funktioniert es
 
 ```
-index.html
-css/styles.css
-js/ config.js · demo-data.js · store.js · api.js · ui.js · prompts.js · tabs.js · app.js
+            ┌── GitHub Actions (stündlicher Cron, kostenlos) ──────────────┐
+            │  1. Google-News-RSS zu uCORE-Themen abrufen (dpa, Reuters…)  │
+            │  2. Claude Haiku  → schneller, günstiger Relevanz-Vorfilter  │
+            │  3. Claude Opus   → genaue Analyse: Faktor −1…+1 + Begründung│
+            │  4. Ergebnis in data/news.json schreiben & committen         │
+            └───────────────────────────┬─────────────────────────────────┘
+                                         ▼
+              GitHub Pages serviert das Dashboard (liest data/news.json)
 ```
 
-## Datenschutz
+- **Zweistufig & kostenbewusst:** Das günstige Modell (Haiku) filtert die Masse vor; nur die wenigen
+  relevanten Treffer gehen an das starke Modell (Opus). So bleiben die Kosten pro Stunde minimal.
+- **Persistenz:** Die Bewertungen liegen versioniert in `data/news.json` — jede Stunde ein nachvollziehbarer
+  Commit (die „Datenbank“ ist Teil des Repos, kein Server nötig).
+- **Datensatz je Ereignis:** Link, Titel, Quelle, Datum, **Faktor (−1…+1)**, Kategorie, **Begründung** und
+  Konfidenz.
+- **Schwache Signale sichtbar:** Auch scheinbar nebensächliche Meldungen landen mit Faktor nahe 0 im Radar,
+  statt nur Gut/Schlecht zu zeigen.
 
-Kein Backend, kein Tracking. API-Key, Einstellungen, Profil und Cache liegen nur im Browser.
-Im Live-Modus gehen Profil + Anfrage an Anthropic; im Demo-Modus verlässt nichts den Browser.
+## Hosting & Kosten
 
----
+Komplett **kostenlos** und ohne eigene Infrastruktur — dieselbe Idee wie bei
+`vocabulary-learning-app`: **GitHub Pages** (statisches Frontend) plus **GitHub Actions** (Cron). Kein AWS,
+kein Server, keine Datenbank-Instanz. Der API-Key liegt ausschließlich als **GitHub-Actions-Secret** vor und
+wird nie an den Browser ausgeliefert.
 
-*Gebaut mit Claude Code. „AI as a sensegiver, not an oracle.“*
+> Eine AWS-Variante (Terraform: Lambda + EventBridge-Schedule + DynamoDB + S3/CloudFront) wäre möglich, ist
+> hier aber bewusst nicht gewählt: sie verursacht laufende Kosten und Betrieb, ohne für diesen Anwendungsfall
+> einen Vorteil gegenüber dem kostenlosen GitHub-Setup zu bieten.
+
+## Einrichtung (einmalig)
+
+1. **Anthropic-API-Key als Repo-Secret hinterlegen:**
+   ```bash
+   gh secret set ANTHROPIC_API_KEY --repo bartfastiel/ucore-radar
+   # Wert (sk-ant-…) eingeben — bleibt geheim, nur in Actions verfügbar.
+   ```
+2. **Ersten Scan auslösen** (statt auf die volle Stunde zu warten):
+   ```bash
+   gh workflow run hourly-news-scan --repo bartfastiel/ucore-radar
+   ```
+   Danach läuft der Scan automatisch stündlich. Manuell jederzeit über den **Actions**-Tab → *Run workflow*.
+
+Ohne Key tut der Cron nichts; das Dashboard zeigt dann die mitgelieferten **Startwerte** (`seed`), bis die
+ersten Live-Bewertungen eintreffen.
+
+## Unternehmensprofil anpassen
+
+Alles Unternehmensspezifische steht zentral in [`config/profile.json`](config/profile.json):
+Beschreibung/Geschäftsmodell (für die KI-Bewertung), die **Suchanfragen** (`queries`), die Modelle
+(`triage` = Haiku, `analysis` = Opus) und Limits. uCORE ist dort fix hinterlegt.
+
+## Struktur
+
+```
+config/profile.json          fixes Unternehmensprofil + Suchanfragen + Modelle
+scripts/sources.mjs          Google-News-RSS abrufen & parsen (zero-dependency)
+scripts/scan.mjs             Pipeline: Triage (Haiku) → Analyse (Opus) → data/news.json
+.github/workflows/scan.yml   stündlicher Cron + manueller Trigger
+data/news.json               versionierter Datenspeicher der Bewertungen
+index.html · css · js/app.js Dashboard (liest data/news.json, kein API-Key im Browser)
+```
+
+## Modelle
+
+`claude-haiku-4-5` (Vorfilter) und `claude-opus-4-8` (Analyse, mit Structured Outputs für robustes JSON).
+Anpassbar in `config/profile.json`.

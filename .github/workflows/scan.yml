@@ -1,0 +1,40 @@
+name: hourly-news-scan
+
+on:
+  schedule:
+    - cron: "7 * * * *"      # stündlich (Minute 7), um die volle Stunde zu meiden
+  workflow_dispatch: {}        # manuell auslösbar (Actions-Tab → Run workflow)
+
+permissions:
+  contents: write              # für den Commit der aktualisierten data/news.json
+
+concurrency:
+  group: news-scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Scan & analyse news
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/scan.mjs
+
+      - name: Commit updated datastore
+        run: |
+          git config user.name "ucore-radar-bot"
+          git config user.email "actions@github.com"
+          if [[ -n "$(git status --porcelain data/news.json)" ]]; then
+            git add data/news.json
+            git commit -m "radar: update market signals ($(date -u +%Y-%m-%dT%H:%MZ))"
+            git push
+          else
+            echo "No changes to commit."
+          fi
