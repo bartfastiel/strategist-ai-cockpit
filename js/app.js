@@ -70,9 +70,6 @@
   }
 
   function renderKpis() {
-    const items = DATA.items;
-    const opp = items.filter((i) => isOpp(i.factor)).length;
-    const risk = items.filter((i) => isRisk(i.factor)).length;
     const avg = avgFactor();
     const tend = avg > 0.12 ? "Tendenz: eher Chancen" : avg < -0.12 ? "Tendenz: eher Risiken" : "Tendenz: ausgewogen";
     const pct = ((avg + 1) / 2) * 100;
@@ -81,10 +78,7 @@
         <div class="kpi-label">${esc(tend)}</div>
         <div class="needle-track"><div class="needle" style="left:${pct}%"></div></div>
         <div class="needle-scale"><span>Risiko</span><span>${fmtFactor(avg)}</span><span>Chance</span></div>
-      </div>
-      <div class="kpi"><div class="kpi-num opp">${opp}</div><div class="kpi-label">Chancen</div></div>
-      <div class="kpi"><div class="kpi-num risk">${risk}</div><div class="kpi-label">Risiken</div></div>
-      <div class="kpi"><div class="kpi-num">${items.length}</div><div class="kpi-label">beobachtet</div></div>`;
+      </div>`;
   }
 
   /* --- Scatter matrix: x = factor (-1..+1), y = confidence (0..1) --- */
