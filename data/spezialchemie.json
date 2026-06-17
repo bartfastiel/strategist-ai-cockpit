@@ -1,6 +1,62 @@
 {
-  "updatedAt": "2026-06-17T07:02:09.856Z",
+  "updatedAt": "2026-06-17T07:27:11.425Z",
   "items": [
+    {
+      "id": "spezialchemie-h2",
+      "key": "verteidigungshaushalt 2026 munitionsbeschaffung bleibt höchste priorität",
+      "title": "Verteidigungshaushalt 2026: Munitionsbeschaffung bleibt höchste Priorität",
+      "url": "https://www.hartpunkt.de/verteidigungshaushalt-2026-munitionsbeschaffung-weiterhin-hoechste-prioritaet/",
+      "source": "hartpunkt.de",
+      "publishedAt": "2026-06-17T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": 0.7,
+      "category": "opportunity",
+      "reasoning": "Stark steigende Munitionsbudgets treiben die Nachfrage nach Treibladungs-Vorstoffen wie Nitroguanidin — ein direkter Rückenwind für das Verteidigungssegment des Anbieters.",
+      "confidence": 0.75,
+      "model": "claude-haiku-4-5 (fan-out)"
+    },
+    {
+      "id": "spezialchemie-h1",
+      "key": "chemie leidet unter brutalem wettbewerb mit china",
+      "title": "Chemie leidet unter brutalem Wettbewerb mit China",
+      "url": "https://www.boersen-zeitung.de/unternehmen-branchen/chemie-leidet-unter-brutalem-wettbewerb-mit-china",
+      "source": "Börsen-Zeitung",
+      "publishedAt": "2026-06-17T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": -0.65,
+      "category": "risk",
+      "reasoning": "Europäische Chemie wird durch chinesisches Preisdumping unter Druck gesetzt; NCN-/Spezialchemie ist beim Export besonders betroffen, was Margen und Wettbewerbsfähigkeit des Anbieters belastet.",
+      "confidence": 0.8,
+      "model": "claude-haiku-4-5 (fan-out)"
+    },
+    {
+      "id": "spezialchemie-h4",
+      "key": "ezb projektionen juni 2026 eingetrübte euroraum konjunktur",
+      "title": "EZB-Projektionen Juni 2026: eingetrübte Euroraum-Konjunktur",
+      "url": "https://www.ecb.europa.eu/press/projections/html/ecb.projections202606_eurosystemstaff~a495110f8d.de.html",
+      "source": "EZB",
+      "publishedAt": "2026-06-17T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": -0.3,
+      "category": "risk",
+      "reasoning": "Eine gedämpfte Konjunkturprognose und Energiepreisrisiken (Nahost) schwächen die Industrienachfrage, auf die der Anbieter als Vorprodukt-Lieferant angewiesen ist.",
+      "confidence": 0.6,
+      "model": "claude-haiku-4-5 (fan-out)"
+    },
+    {
+      "id": "spezialchemie-h3",
+      "key": "düngerpreise steigen in rasendem tempo",
+      "title": "Düngerpreise steigen in rasendem Tempo",
+      "url": "https://www.agrarheute.com/markt/duengemittel/duengerpreise-steigen-rasendem-tempo-landwirte-zahlen-horrorpreise-fuer-duenger-639755",
+      "source": "agrarheute",
+      "publishedAt": "2026-06-15T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": 0.2,
+      "category": "opportunity",
+      "reasoning": "Anziehende Düngemittelpreise sind für den Anbieter ambivalent: sie können die Marge bei Düngemittel-Zusatzstoffen stützen, verteuern aber zugleich ammoniakbasierte Vorstoffe.",
+      "confidence": 0.5,
+      "model": "claude-haiku-4-5 (fan-out)"
+    },
     {
       "id": "chem001",
       "scannedAt": "2026-06-17T07:02:09.856Z",

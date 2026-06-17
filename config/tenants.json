@@ -4,7 +4,7 @@
   "tenants": [
     {
       "id": "pflege-iot",
-      "tab": "Pflege-IoT",
+      "tab": "Pflege",
       "name": "Pflege-IoT · AAL-Spin-off",
       "subtitle": "Edge-Assistenzsysteme für Pflege & betreutes Wohnen (Spin-off aus dem Fraunhofer-Umfeld).",
       "businessModel": "Spin-off aus dem Fraunhofer-/AAL-Umfeld: modulare, lokal betriebene (Edge-)Plattform für situationsbasierte Assistenzsysteme in Wohn- und Pflegeumgebungen. Lokaler IoT-Hub + regelbasiertes Erkennungs-Betriebssystem (Sturz-/Präsenzerkennung per Radar, Notfallalarmierung) + Verwaltungsportal. Rohdaten bleiben lokal (keine Cloud-Pflicht). Märkte: Altenpflege, betreutes Wohnen, Behindertenassistenz, Notfallerkennung, Gebäudeautomation, Wohnungswirtschaft. Funkprotokolle EnOcean/MQTT, Radarsensorik, offene Architektur. Positionierung: lokal, sicher, datensouverän; entlastet Pflegekräfte. Treiber: Pflegekräftemangel, Demografie, DSGVO, Pflegekassen-Förderung, EU Cyber Resilience Act, Lieferketten-/Sanktionsrisiko (chinesische Sensorik), Chip-/Speicherpreise.",
@@ -19,7 +19,7 @@
     },
     {
       "id": "spezialchemie",
-      "tab": "Spezialchemie",
+      "tab": "Chemie",
       "name": "Spezialchemie-Mittelständler",
       "subtitle": "Börsennotierte NCN-/Stickstoff-Spezialchemie (Pharma- & Agrar-Vorprodukte, Kreatin, Verteidigung).",
       "businessModel": "Börsennotierter Spezialchemie-Mittelständler in Süddeutschland. Stickstoff-/NCN-Spezialchemikalien: Pharma- und Agrar-Vorprodukte, Kreatin (Sport-/Gesundheitsernährung), Düngemittel-Zusatzstoffe (Nitrifikationshemmer), Spezialprodukte für Metallurgie und Verteidigung (u. a. Nitroguanidin). Energieintensive Produktion (Carbid/Lichtbogenofen), Export weltweit. Treiber: Strom-/Energiepreise, EU-Emissionshandel/CO2, Chemikalienregulierung (REACH), Agrar-/Düngemittelpolitik, Pharma-Lieferketten/Reshoring, China-Wettbewerb/Zölle, Verteidigungsnachfrage, Kreatin-Gesundheitstrend.",
@@ -33,7 +33,7 @@
     },
     {
       "id": "edtech",
-      "tab": "EdTech",
+      "tab": "Education",
       "name": "EdTech · Lehrplan-/Curriculum-Daten",
       "subtitle": "Digitale Lehrplan- und Unterrichtsplanungs-Daten für Schulen, Lehrkräfte und Bildungsverlage.",
       "businessModel": "EdTech-/Bildungsmedien-Anbieter in Deutschland. Stellt digitale Lehrplan-, Curriculum- und Unterrichtsplanungs-Informationen bereit (strukturierte Daten zu den Lehrplänen der Bundesländer, Verknüpfung mit Lehr-/Lernmaterialien) für Schulen, Lehrkräfte und Bildungsverlage. Daten gehostet in Deutschland (DSGVO). Treiber: Bildungspolitik der Länder (KMK/Kultusministerien), Schul-Digitalisierung (DigitalPakt), Lehrkräftemangel, KI im Unterricht / KI-Tutoring (Wettbewerb & Chance), Schulbuch-/Verlagsmarkt, Datenschutz an Schulen.",
@@ -47,7 +47,7 @@
     },
     {
       "id": "biogas",
-      "tab": "Biogas",
+      "tab": "Erdgas",
       "name": "CleanTech · Biogas / Biomethan",
       "subtitle": "Erneuerbare Energie aus organischen Reststoffen — Strom, Wärme, Biomethan-Einspeisung.",
       "businessModel": "CleanTech-/Energieunternehmen, das Biogas bzw. Biomethan und erneuerbare Energie aus organischen Reststoffen (Bioabfall, Reststoffe der Lebensmittelindustrie, landwirtschaftliche Reststoffe) erzeugt, aufbereitet und vermarktet (Strom/Wärme/Biomethan-Einspeisung). Treiber: EEG-/Förderpolitik und -Ausschreibungen für Biogas/Biomethan, CO2-Preis/Emissionshandel, Gas- und Strompreise, EU RED III, kommunale Wärmeplanung, GEG/Heizungsgesetz, Gasnetzzugangs-Regulierung, Verfügbarkeit/Preis organischer Reststoffe, Agrarpolitik.",
@@ -61,7 +61,7 @@
     },
     {
       "id": "denkmal",
-      "tab": "Denkmalimmobilien",
+      "tab": "Immobilien",
       "name": "Denkmalimmobilien · historische Sanierung",
       "subtitle": "Erwerb & denkmalgerechte Sanierung historischer Schlösser, Burgen und Stadtpalais.",
       "businessModel": "Gesellschaft für den Erwerb und die denkmalgerechte Sanierung historischer Immobilien — Schlösser, Burgen, Stadtpalais — in Deutschland und Europa, teils mit Hotel-/Gastronomie-, Wohn- oder kultureller Nutzung. Treiber: Denkmalschutz- und Steuerrecht (Denkmal-AfA), Bauzinsen/Finanzierung, Baukosten und Handwerker-/Fachkräftemangel, Immobilien- und Luxusimmobilienmarkt, Tourismus/Hotellerie, energetische Vorgaben für Bestandsgebäude (GEG, EU-Gebäuderichtlinie EPBD inkl. Denkmal-Ausnahmen), Förderprogramme für Denkmalpflege/Kultur.",

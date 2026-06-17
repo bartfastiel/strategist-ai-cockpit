@@ -1,6 +1,62 @@
 {
-  "updatedAt": "2026-06-17T07:02:09.856Z",
+  "updatedAt": "2026-06-17T07:27:11.425Z",
   "items": [
+    {
+      "id": "edtech-h4",
+      "key": "eu ki verordnung schulen müssen ab august 2026 high risk ki beachten",
+      "title": "EU-KI-Verordnung: Schulen müssen ab August 2026 High-Risk-KI beachten",
+      "url": "https://www.datenschutz.org/schule/",
+      "source": "datenschutz.org",
+      "publishedAt": "2026-06-17T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": -0.4,
+      "category": "risk",
+      "reasoning": "KI-Funktionen zur Leistungsbewertung können als Hochrisiko gelten; das erzeugt Compliance-Aufwand für KI-nahe Produktfunktionen des Anbieters, schärft aber zugleich das DSGVO-Profil.",
+      "confidence": 0.6,
+      "model": "claude-haiku-4-5 (fan-out)"
+    },
+    {
+      "id": "edtech-h3",
+      "key": "tausende offene stellen an schulen lehrermangel bleibt dauerbaustelle",
+      "title": "Tausende offene Stellen an Schulen: Lehrermangel bleibt Dauerbaustelle",
+      "url": "https://www.news4teachers.de/2026/06/tausende-offene-stellen-an-schulen-lehrermangel-bleibt-dauerbaustelle-trotz-zuwachs/",
+      "source": "News4teachers",
+      "publishedAt": "2026-06-17T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": 0.4,
+      "category": "opportunity",
+      "reasoning": "Der anhaltende Lehrkräftemangel zwingt Schulen zu Effizienz bei der Unterrichtsplanung — fertige, lehrplangeprüfte Planungsdaten des Anbieters gewinnen als Entlastung an Nachfrage.",
+      "confidence": 0.55,
+      "model": "claude-haiku-4-5 (fan-out)"
+    },
+    {
+      "id": "edtech-h2",
+      "key": "ernst klett verlag integriert ki in schulbücher und schulki plattform",
+      "title": "Ernst Klett Verlag integriert KI in Schulbücher und schulKI-Plattform",
+      "url": "https://www.klett.de/inhalt/ki/produkte/277435",
+      "source": "Ernst Klett Verlag",
+      "publishedAt": "2026-06-17T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": -0.4,
+      "category": "risk",
+      "reasoning": "Ein weiterer großer Schulbuchverlag koppelt KI direkt an seine Lehrwerke und eigene Plattform — er besetzt damit die Lehrplan-zu-Material-Verknüpfung, das Kerngeschäft des Anbieters.",
+      "confidence": 0.7,
+      "model": "claude-haiku-4-5 (fan-out)"
+    },
+    {
+      "id": "edtech-h1",
+      "key": "nationaler bildungsbericht 2026 chancengerechtigkeit und fachkräftesicherung im ",
+      "title": "Nationaler Bildungsbericht 2026: Chancengerechtigkeit und Fachkräftesicherung im Fokus",
+      "url": "https://www.bmbfsfj.bund.de/bmbfsfj/aktuelles/pressemitteilungen/bildungsbericht-2026-chancengerechtigkeit-und-fachkraeftesicherung-bleiben-zentrale-aufgaben-289888",
+      "source": "BMBFSFJ",
+      "publishedAt": "2026-06-15T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": 0.5,
+      "category": "opportunity",
+      "reasoning": "Der politische Fokus auf Chancengerechtigkeit erhöht den Druck auf datengestützte, lehrplankonforme Unterrichtsangebote — günstig für die strukturierten Curriculum-Daten des Anbieters.",
+      "confidence": 0.6,
+      "model": "claude-haiku-4-5 (fan-out)"
+    },
     {
       "id": "edu001",
       "scannedAt": "2026-06-17T07:02:09.856Z",

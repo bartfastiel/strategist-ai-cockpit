@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-06-17T07:02:09.856Z",
+  "updatedAt": "2026-06-17T07:27:11.425Z",
   "items": [
+    {
+      "id": "denkmal-h3",
+      "key": "tourismus update juni 2026 starker sommer mit events und kongressen",
+      "title": "Tourismus-Update Juni 2026: starker Sommer mit Events und Kongressen",
+      "url": "https://dehoga-hamburg.de/tourismus-update-juni-2026/",
+      "source": "DEHOGA Hamburg",
+      "publishedAt": "2026-06-16T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": 0.4,
+      "category": "opportunity",
+      "reasoning": "Hohe Nachfrage nach Event-, Kultur- und Kongressformaten stützt die Hotel-/Kulturnutzung historischer Objekte der Gesellschaft in der Sommersaison.",
+      "confidence": 0.5,
+      "model": "claude-haiku-4-5 (fan-out)"
+    },
     {
       "id": "dnk001",
       "scannedAt": "2026-06-17T07:02:09.856Z",
@@ -14,6 +28,20 @@
       "category": "risk",
       "reasoning": "Die erste EZB-Zinserhöhung seit 2023 verteuert die Refinanzierung kapitalintensiver Erwerbs- und Sanierungsprojekte der Gesellschaft und drückt auf Margen bei fremdfinanzierten Schloss- und Burgankäufen.",
       "model": "claude (fan-out, Opus+Web)"
+    },
+    {
+      "id": "denkmal-h1",
+      "key": "immobilienmarkt stabilisiert sich rund 3 preissteigerung für 2026 erwartet",
+      "title": "Immobilienmarkt stabilisiert sich: rund +3 % Preissteigerung für 2026 erwartet",
+      "url": "https://www.drklein.de/immobilienpreise.html",
+      "source": "Dr. Klein",
+      "publishedAt": "2026-06-10T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": 0.3,
+      "category": "opportunity",
+      "reasoning": "Moderat steigende Preise geben der Gesellschaft Spielraum für Bewertung und Exit sanierter Objekte und stützen langfristige Hotel-/Wohnkonzepte.",
+      "confidence": 0.5,
+      "model": "claude-haiku-4-5 (fan-out)"
     },
     {
       "id": "dnk002",
@@ -56,6 +84,20 @@
       "category": "opportunity",
       "reasoning": "Steigende Übernachtungszahlen stützen die Hotel- und Gastronomienutzung historischer Objekte der Gesellschaft, auch wenn die klassische Hotellerie schwächer als Camping abschneidet.",
       "model": "claude (fan-out, Opus+Web)"
+    },
+    {
+      "id": "denkmal-h2",
+      "key": "sotheby s luxury outlook 2026 premium immobilien in toplagen stabil",
+      "title": "Sotheby's Luxury Outlook 2026: Premium-Immobilien in Toplagen stabil",
+      "url": "https://www.konii.de/news/luxury-outlook-2026-die-wichtigsten-trends-die-den-globalen-luxusimmobilienmarkt-praegen/",
+      "source": "Sotheby's / Konii",
+      "publishedAt": "2026-04-15T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": 0.5,
+      "category": "opportunity",
+      "reasoning": "Preisresistenz und wachsende Nachfrage im Premiumsegment begünstigen die Vermarktung denkmalgerecht sanierter Liebhaberobjekte der Gesellschaft.",
+      "confidence": 0.55,
+      "model": "claude-haiku-4-5 (fan-out)"
     },
     {
       "id": "dnk005",

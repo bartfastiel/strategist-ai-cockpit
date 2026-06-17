@@ -1,6 +1,48 @@
 {
-  "updatedAt": "2026-06-17T07:02:09.856Z",
+  "updatedAt": "2026-06-17T07:27:11.425Z",
   "items": [
+    {
+      "id": "biogas-h2",
+      "key": "kommunale wärmeplanung 65 prozent regel für großstädte ab 30 juni 2026",
+      "title": "Kommunale Wärmeplanung: 65-Prozent-Regel für Großstädte ab 30. Juni 2026",
+      "url": "https://magazin.hausverwalterscout.de/kommunale-waermeplanung-2026/",
+      "source": "HausverwalterScout",
+      "publishedAt": "2026-06-17T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": 0.5,
+      "category": "opportunity",
+      "reasoning": "Mit den Wärmeplanungs-Fristen steigt die Nachfrage nach erneuerbarer Wärme/Fernwärme — der Betreiber kann Biogas-Wärme und Biomethan gezielt vermarkten.",
+      "confidence": 0.6,
+      "model": "claude-haiku-4-5 (fan-out)"
+    },
+    {
+      "id": "biogas-h1",
+      "key": "gaspreis juni 2026 bei 9 5 ct kwh nahost konflikt treibt großhandelspreise",
+      "title": "Gaspreis Juni 2026 bei 9,5 ct/kWh — Nahost-Konflikt treibt Großhandelspreise",
+      "url": "https://www.bdew.de/service/daten-und-grafiken/gaspreis-strompreis-aktuell/",
+      "source": "BDEW",
+      "publishedAt": "2026-06-17T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": 0.5,
+      "category": "opportunity",
+      "reasoning": "Höhere Erdgaspreise verbessern die Wettbewerbsfähigkeit von Biomethan in der Vermarktung und machen Biogas-Investitionen des Betreibers rentabler.",
+      "confidence": 0.6,
+      "model": "claude-haiku-4-5 (fan-out)"
+    },
+    {
+      "id": "biogas-h3",
+      "key": "biomethan als kraftstoff eu treibhausgasquote erhöht neue märkte in schiff luft",
+      "title": "Biomethan als Kraftstoff: EU-Treibhausgasquote erhöht, neue Märkte in Schiff/Luft",
+      "url": "https://www.topagrar.com/energie/news/biomethan-als-kraftstoff-rahmen-regeln-und-eu-markt-20026307.html",
+      "source": "top agrar",
+      "publishedAt": "2026-06-10T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": 0.4,
+      "category": "opportunity",
+      "reasoning": "Höhere THG-Quoten und Mengenanforderungen eröffnen dem Betreiber zusätzliche Absatzkanäle für Biomethan, insbesondere im Verkehrssektor.",
+      "confidence": 0.6,
+      "model": "claude-haiku-4-5 (fan-out)"
+    },
     {
       "id": "bio001",
       "scannedAt": "2026-06-17T07:02:09.856Z",
@@ -98,6 +140,20 @@
       "category": "risk",
       "reasoning": "Der Referentenentwurf hält für Neuanlagen die 10-jährige Kündigungsfrist beim Gasnetzzugang bei und gilt der Branche als 'Ende des Ausbaus neuer Biomethanprojekte' – das gefährdet die Planungssicherheit des Betreibers direkt.",
       "model": "claude (fan-out, Opus+Web)"
+    },
+    {
+      "id": "biogas-h4",
+      "key": "neues verfahren senkt kosten der biogas zu biomethan aufbereitung für kleine anl",
+      "title": "Neues Verfahren senkt Kosten der Biogas-zu-Biomethan-Aufbereitung für kleine Anlagen",
+      "url": "https://www.solarserver.de/2026/02/11/biogas-zu-biomethan-forschende-entwickeln-neues-verfahren",
+      "source": "Solarserver",
+      "publishedAt": "2026-02-11T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": 0.4,
+      "category": "opportunity",
+      "reasoning": "Eine kostengünstigere Aufbereitungstechnik macht die Biomethan-Einspeisung auch für kleinere Anlagen wirtschaftlich — relevant für den Betreiber nach Auslaufen der EEG-Förderung.",
+      "confidence": 0.55,
+      "model": "claude-haiku-4-5 (fan-out)"
     },
     {
       "id": "bio008",

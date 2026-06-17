@@ -1,13 +1,14 @@
 /* Marktradar — multi-tenant frontend. Loads config/tenants.json, renders a tenant tab bar,
    and per tenant reads data/<id>.json. Per tenant: KPIs, a Chance/Risk × Certainty scatter
-   matrix (hover a point isolates that event below), and three columns (Risiken|Neutral|Chancen).
-   No API key in the browser — the dashboard is purely a reader. */
+   matrix (hover a point isolates that event below), three columns (Risiken|Neutral|Chancen),
+   plus a date-range filter and sort. No API key in the browser — the dashboard is a reader. */
 (function () {
   const $ = (s, r) => (r || document).querySelector(s);
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
-  let TENANTS = [], TENANT = null, DATA = { items: [] }, SORT = "impact", focusId = null, pinnedId = null;
+  let TENANTS = [], TENANT = null, DATA = { items: [] };
+  let SORT = "impact", RANGE = "all", focusId = null, pinnedId = null;
 
   const isOpp = (f) => f >= 0.2, isRisk = (f) => f <= -0.2, isNeutral = (f) => f > -0.2 && f < 0.2;
   const catOf = (it) => isOpp(it.factor) ? "opportunity" : isRisk(it.factor) ? "risk" : "neutral";
@@ -16,7 +17,6 @@
     if (f <= -0.2) { const t = Math.min(1, (-f - 0.2) / 0.8); return `hsl(6, ${50 + t * 25}%, ${54 - t * 8}%)`; }
     return "hsl(215, 12%, 55%)";
   }
-  const catLabel = (c) => ({ risk: "Risiko", neutral: "Neutral", opportunity: "Chance" }[c]);
   const fmtFactor = (f) => (f > 0 ? "+" : "") + f.toFixed(2);
   function relTime(iso) {
     if (!iso) return "";
@@ -27,6 +27,17 @@
     if (s < 7 * 86400) return Math.round(s / 86400) + " Tg.";
     return d.toLocaleDateString("de-DE", { day: "2-digit", month: "short" });
   }
+
+  // date-range filter (by publishedAt, fallback scannedAt)
+  function inRange(it) {
+    if (RANGE === "all") return true;
+    const raw = it.publishedAt || it.scannedAt;
+    if (!raw) return true;
+    const d = new Date(raw); if (isNaN(d)) return true;
+    if (RANGE === "1") { const s = new Date(); s.setHours(0, 0, 0, 0); return d >= s; }
+    const days = +RANGE; return d.getTime() >= Date.now() - days * 864e5;
+  }
+  const viewItems = () => DATA.items.filter(inRange);
 
   async function init() {
     let cfg = null;
@@ -67,14 +78,17 @@
     renderColumns();
     $("#sort").value = SORT;
     $("#sort").onchange = (e) => { SORT = e.target.value; renderColumns(); };
-    const n = DATA.items.length;
-    $("#ft-count").textContent = n ? n + " bewertete Ereignisse im Radar" : "";
+    $("#range").value = RANGE;
+    $("#range").onchange = (e) => { RANGE = e.target.value; focusId = null; pinnedId = null; render(); };
+    const n = viewItems().length;
+    $("#ft-count").textContent = n ? n + " Ereignisse im Blick" + (RANGE === "all" ? "" : " (gefiltert)") : "";
   }
 
   function avgFactor() {
-    if (!DATA.items.length) return 0;
+    const items = viewItems();
+    if (!items.length) return 0;
     let sw = 0, s = 0;
-    DATA.items.forEach((it) => {
+    items.forEach((it) => {
       const ageD = it.scannedAt ? (Date.now() - new Date(it.scannedAt)) / 864e5 : 30;
       const w = (it.confidence || 0.5) * Math.exp(-ageD / 21);
       s += (it.factor || 0) * w; sw += w;
@@ -96,8 +110,9 @@
 
   function renderChart() {
     const host = $("#chart");
-    if (!DATA.items.length) { host.innerHTML = `<p class="empty">Noch keine Ereignisse — der stündliche Scan füllt das Radar.</p>`; return; }
-    const dots = DATA.items.map((it) => {
+    const items = viewItems();
+    if (!items.length) { host.innerHTML = `<p class="empty">Keine Ereignisse in diesem Zeitraum.</p>`; return; }
+    const dots = items.map((it) => {
       const x = ((it.factor + 1) / 2) * 100;
       const y = Math.max(0, Math.min(1, it.confidence || 0.5)) * 100;
       return `<button class="pt" data-id="${esc(it.id)}"
@@ -137,6 +152,7 @@
 
   function renderColumns() {
     const host = $("#columns");
+    const items = viewItems();
     const act = activeId();
     document.querySelectorAll(".pt").forEach((p) => p.classList.toggle("active", p.dataset.id === act));
     const defs = [
@@ -144,12 +160,12 @@
       { k: "neutral", t: "Neutral", cls: "col-neutral" },
       { k: "opportunity", t: "Chancen", cls: "col-opp" }
     ];
-    const visible = act ? DATA.items.filter((i) => i.id === act) : DATA.items;
+    const visible = act ? items.filter((i) => i.id === act) : items;
     const banner = act
       ? `<div class="focus-bar">Fokus auf 1 Ereignis — ${pinnedId ? "klick auf den Punkt löst die Auswahl" : "Maus vom Punkt nehmen blendet wieder alle ein"}.</div>`
       : "";
     host.innerHTML = banner + `<div class="cols">` + defs.map((d) => {
-      const all = DATA.items.filter((i) => catOf(i) === d.k);
+      const all = items.filter((i) => catOf(i) === d.k);
       const shown = sortItems(visible.filter((i) => catOf(i) === d.k));
       return `<section class="col ${d.cls}">
         <header><h3>${d.t}</h3><span class="cnt">${all.length}</span></header>

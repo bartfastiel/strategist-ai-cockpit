@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-06-17T07:02:09.856Z",
+  "updatedAt": "2026-06-17T07:27:11.425Z",
   "items": [
+    {
+      "id": "pflege-iot-h1",
+      "key": "innovation in der pflege dritte förderrunde mit fokus auf krisenfeste versorgung",
+      "title": "Innovation in der Pflege: Dritte Förderrunde mit Fokus auf krisenfeste Versorgung",
+      "url": "https://www.hallanzeiger.de/aktuelle_lokale_nachrichten/16-06-2026-innovation-in-der-pflege-dritte-foerderrunde-startet-mit-fokus-auf-krisenfeste-gesundheitsversorgung",
+      "source": "H@ll Anzeiger",
+      "publishedAt": "2026-06-16T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": 0.8,
+      "category": "opportunity",
+      "reasoning": "Eine neue Förderrunde für innovative Pflegeprojekte mit Schwerpunkt krisenfeste Versorgung adressiert direkt das Wertversprechen des Anbieters (Sturzerkennung, Notfallalarm) und kann Anschaffungen mitfinanzieren.",
+      "confidence": 0.7,
+      "model": "claude-haiku-4-5 (fan-out)"
+    },
     {
       "id": "n001",
       "scannedAt": "2026-06-16T22:01:04.162Z",
@@ -44,6 +58,20 @@
       "model": "claude (fan-out, Opus+Web)"
     },
     {
+      "id": "pflege-iot-h4",
+      "key": "verlängerung der digitalförderung in der pflege bis 2030",
+      "title": "Verlängerung der Digitalförderung in der Pflege bis 2030",
+      "url": "https://www.carecloud.de/blog/verlaengerung-der-digitalfoerderung-in-der-pflege/",
+      "source": "CareCloud",
+      "publishedAt": "2026-06-15T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": 0.6,
+      "category": "opportunity",
+      "reasoning": "Die verlängerte Förderung (Zuschuss je Einrichtung für digitale Lösungen) senkt die Investitionshürde für die Systeme des Anbieters zur Personalentlastung.",
+      "confidence": 0.6,
+      "model": "claude-haiku-4-5 (fan-out)"
+    },
+    {
       "id": "n004",
       "scannedAt": "2026-06-16T22:01:04.162Z",
       "key": "usa iran rahmenabkommen ölpreis fällt rund 5 prozent brent unter 84 dollar",
@@ -70,6 +98,34 @@
       "category": "opportunity",
       "reasoning": "Niedrigere Strompreise entlasten den Betrieb stets laufender Edge-Geräte und Pflegeeinrichtungen leicht; der Nahost-bedingte Energierisikofaktor bleibt ein latentes Aufwärtsrisiko.",
       "model": "claude (fan-out, Opus+Web)"
+    },
+    {
+      "id": "pflege-iot-h3",
+      "key": "medizintechnik 2026 elektronik im stresstest sensoren und chips knapp",
+      "title": "Medizintechnik 2026: Elektronik im Stresstest — Sensoren und Chips knapp",
+      "url": "https://www.ingenieur.de/technik/fachbereiche/medizin/medizintechnik-elektronik-im-stresstest/",
+      "source": "ingenieur.de",
+      "publishedAt": "2026-06-14T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": -0.6,
+      "category": "risk",
+      "reasoning": "Knappe und teure Sensoren/Halbleiter treffen den radarsensorik-abhängigen Anbieter direkt bei Stückkosten und Lieferfähigkeit der Edge-Hardware.",
+      "confidence": 0.65,
+      "model": "claude-haiku-4-5 (fan-out)"
+    },
+    {
+      "id": "pflege-iot-h2",
+      "key": "aqara fp400 startet präsenzsensor mit sturzerkennung für den massenmarkt",
+      "title": "Aqara FP400 startet: Präsenzsensor mit Sturzerkennung für den Massenmarkt",
+      "url": "https://www.techboys.de/aqara-fp400-praesenzsensor-sturzerkennung",
+      "source": "TechBoys",
+      "publishedAt": "2026-06-12T00:00:00.000Z",
+      "scannedAt": "2026-06-17T07:27:11.425Z",
+      "factor": -0.3,
+      "category": "risk",
+      "reasoning": "Ein günstiger Consumer-mmWave-Sensor mit Sturzerkennung erhöht den Wettbewerbs- und Preisdruck; der Anbieter muss sich über Pflege-Tauglichkeit, Datenschutz und lokale Verarbeitung abgrenzen.",
+      "confidence": 0.7,
+      "model": "claude-haiku-4-5 (fan-out)"
     },
     {
       "id": "n006",
